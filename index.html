@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hattie McDaniel - Leyenda Dorada</title>
+    <!-- Fuentes elegantes de Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Cinzel:wght@500;700;900&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+    
+    <style>
+        /* Paleta de colores inspirada en los premios Oscar con más dorado */
+        :root {
+            --gold-light: #FFF0B3;
+            --gold: #D4AF37;
+            --gold-metallic: #AA7C11;
+            --gold-dark: #8A640F;
+            --black-rich: #0D0D0D;
+            --black-card: #1A1A1A;
+            --cream: #F5EFEB;
+            --white: #FFFFFF;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--black-rich);
+            color: var(--cream);
+            line-height: 1.6;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        /* Contenedor principal adaptable a móviles */
+        .app-container {
+            width: 100%;
+            max-width: 500px;
+            background-color: var(--black-rich);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            box-shadow: 0 0 35px rgba(212, 175, 55, 0.25);
+            border-left: 1px solid var(--gold-dark);
+            border-right: 1px solid var(--gold-dark);
+        }
+
+        /* Encabezado */
+        header {
+            text-align: center;
+            padding: 35px 20px 25px 20px;
+            border-bottom: 3px solid var(--gold);
+            background: linear-gradient(to bottom, #261f0f 0%, var(--black-rich) 100%);
+        }
+
+        h1 {
+            font-family: 'Great Vibes', cursive;
+            color: var(--gold);
+            font-size: 3.8rem;
+            font-weight: normal;
+            line-height: 1;
+            text-shadow: 0 2px 15px rgba(212, 175, 55, 0.4);
+            margin-bottom: 8px;
+        }
+
+        .subtitle {
+            font-family: 'Cinzel', serif;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            color: var(--white);
+            font-weight: 500;
+        }
+
+        /* Pestañas (Tabs) de navegación */
+        .tabs-container {
+            display: flex;
+            background-color: #151515;
+            border-bottom: 2px solid var(--gold-metallic);
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+
+        .tab-button {
+            flex: 1;
+            background: none;
+            border: none;
+            color: #999;
+            padding: 16px 5px;
+            font-family: 'Cinzel', serif;
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            cursor: pointer;
+            text-align: center;
+            transition: all 0.3s ease;
+            border-bottom: 3px solid transparent;
+        }
+
+        .tab-button.active {
+            color: var(--gold-light);
+            border-bottom: 3px solid var(--gold);
+            background-color: rgba(212, 175, 55, 0.08);
+            text-shadow: 0 0 8px rgba(212, 175, 55, 0.6);
+        }
+
+        /* Contenido de las pestañas */
+        .tab-content {
+            display: none;
+            padding: 20px;
+            flex-grow: 1;
+            animation: fadeIn 0.4s ease-in-out forwards;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Marcos dorados para las imágenes */
+        .image-frame {
+            width: 100%;
+            border: 3px solid var(--gold);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.7), 0 0 20px rgba(212, 175, 55, 0.3);
+            margin-bottom: 25px;
+            background-color: var(--black-card);
+        }
+
+        .image-frame img {
+            width: 100%;
+            height: auto;
+            display: block;
+            object-fit: cover;
+        }
+
+        /* Tarjetas de Información */
+        .info-card {
+            background-color: var(--black-card);
+            border: 1px solid var(--gold-metallic);
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+        }
+
+        h2 {
+            font-family: 'Cinzel', serif;
+            color: var(--gold-light);
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            border-bottom: 2px solid var(--gold-dark);
+            padding-bottom: 8px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        p {
+            font-size: 0.95rem;
+            margin-bottom: 15px;
+            color: #E0E0E0;
+            font-weight: 300;
+            text-align: justify;
+        }
+
+        /* Lista de datos básicos */
+        .data-list {
+            list-style: none;
+        }
+
+        .data-list li {
+            margin-bottom: 14px;
+            font-size: 0.95rem;
+            border-bottom: 1px solid #2a2a2a;
+            padding-bottom: 8px;
+        }
+
+        .data-list li:last-child {
+            border-bottom: none;
+        }
+
+        .data-list strong {
+            color: var(--gold);
+            font-weight: 600;
+            display: block;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 3px;
+        }
+
+        /* Bloques de Citas destacados */
+        blockquote {
+            background-color: rgba(212, 175, 55, 0.07);
+            border-left: 4px solid var(--gold);
+            padding: 15px;
+            margin: 20px 0;
+            font-style: italic;
+            color: #FFF;
+            border-radius: 0 8px 8px 0;
+            box-shadow: inset 0 0 10px rgba(0,0,0,0.5);
+        }
+
+        /* Botón de acción con estilo dorado metálico */
+        .gold-button {
+            background: linear-gradient(135deg, var(--gold-light) 0%, var(--gold) 50%, var(--gold-metallic) 100%);
+            color: var(--black-rich);
+            border: 1px solid var(--gold-light);
+            padding: 14px 20px;
+            font-family: 'Cinzel', serif;
+            font-weight: 900;
+            font-size: 0.9rem;
+            border-radius: 6px;
+            width: 100%;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.4);
+            transition: all 0.2s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .gold-button:active {
+            transform: scale(0.97);
+            box-shadow: 0 2px 8px rgba(212, 175, 55, 0.2);
+        }
+
+        /* JUEGO INTERACTIVO (Trivia) */
+        .trivia-container {
+            background-color: var(--black-card);
+            border: 2px solid var(--gold);
+            border-radius: 12px;
+            padding: 25px 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
+            text-align: center;
+        }
+
+        .trivia-progress {
+            font-family: 'Cinzel', serif;
+            font-size: 0.85rem;
+            color: var(--gold-light);
+            margin-bottom: 15px;
+            letter-spacing: 1px;
+        }
+
+        .trivia-question {
+            font-size: 1.1rem;
+            font-weight: 400;
+            margin-bottom: 25px;
+            min-height: 70px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+        }
+
+        .trivia-options {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .option-btn {
+            background-color: #222222;
+            color: var(--cream);
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            padding: 15px;
+            border-radius: 8px;
+            font-size: 0.95rem;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            text-align: left;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .option-btn:active {
+            background-color: #333333;
+        }
+
+        .option-btn.correct {
+            background-color: #1e5622 !important;
+            border-color: #4caf50;
+            color: white;
+            font-weight: 600;
+            box-shadow: 0 0 10px rgba(76, 175, 80, 0.4);
+        }
+
+        .option-btn.incorrect {
+            background-color: #7a1c1c !important;
+            border-color: #f44336;
+            color: white;
+            box-shadow: 0 0 10px rgba(244, 67, 54, 0.4);
+        }
+
+        .results-container {
+            display: none;
+            text-align: center;
+            padding: 25px 15px;
+        }
+
+        .results-score {
+            font-family: 'Cinzel', serif;
+            font-size: 3.5rem;
+            color: var(--gold);
+            margin: 20px 0;
+            font-weight: 700;
+            text-shadow: 0 0 15px rgba(212, 175, 55, 0.5);
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 30px 20px;
+            font-size: 0.75rem;
+            color: #777;
+            background-color: #050505;
+            border-top: 1px solid var(--gold-dark);
+            margin-top: auto;
+        }
+
+        footer p {
+            font-family: 'Cinzel', serif;
+            letter-spacing: 1px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="app-container">
+        
+        <header>
+            <h1>Hattie McDaniel</h1>
+            <div class="subtitle">La Primera Leyenda de Oro</div>
+        </header>
+
+        <!-- Barra de Pestañas Interactivas -->
+        <nav class="tabs-container">
+            <button class="tab-button active" onclick="openTab(event, 'tab-inicio')">Inicio</button>
+            <button class="tab-button" onclick="openTab(event, 'tab-logros')">Logros</button>
+            <button class="tab-button" onclick="openTab(event, 'tab-vida')">Vida</button>
+            <button class="tab-button" onclick="openTab(event, 'tab-juego')">Trivia</button>
+        </nav>
+
+        <!-- PESTAÑA 1: INICIO -->
+        <div id="tab-inicio" class="tab-content active">
+            <div class="image-frame">
+                <!-- Imagen real de Hattie McDaniel elegante -->
+                <img src="https://i.insider.com/64079428934c2c001802f00d?width=700" alt="Retrato clásico y elegante de Hattie McDaniel">
+            </div>
+            
+            <div class="info-card">
+                <h2>Datos Básicos</h2>
+                <ul class="data-list">
+                    <li>
+                        <strong>Nombre Completo</strong>
+                        Hattie McDaniel
+                    </li>
+                    <li>
+                        <strong>Nacimiento</strong>
+                        10 de junio de 1893 (Wichita, Kansas)
+                    </li>
+                    <li>
+                        <strong>Fallecimiento</strong>
+                        26 de octubre de 1952 (Hollywood, California)
+                    </li>
+                    <li>
+                        <strong>Oficio Principal</strong>
+                        Actriz cinematográfica, estrella de radio, cantante y compositora
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- PESTAÑA 2: LOGROS -->
+        <div id="tab-logros" class="tab-content">
+            <div class="image-frame">
+                <!-- Imagen real de la estatuilla de los Premios Oscar -->
+                <img src="https://images.milenio.com/cMyz6ubGwYm8nV4oR_EyThUDo7M=/345x194/uploads/media/2026/01/19/premios-oscar-hollywood-marzo-ia.jpeg" alt="Estatuilla oficial de los Premios Oscar de la Academia">
+            </div>
+
+            <div class="info-card">
+                <h2>El Histórico Premio Oscar</h2>
+                <p>Durante la decimosegunda ceremonia de los Premios de la Academia celebrada en 1940, Hattie McDaniel consolidó su inmortalidad cultural al ganar el galardón a la <strong>Mejor Actriz de Reparto</strong> gracias a su impecable interpretación como "Mammy" en la aclamada obra cinemática "Lo que el viento se llevó".</p>
+                <p>Con este triunfo sin precedentes, grabó su nombre en la historia como la primera persona afroamericana en alzar una estatuilla de la Academia.</p>
+            </div>
+
+            <div class="info-card">
+                <h2>Mas Distinciones Doradas</h2>
+                <ul class="data-list">
+                    <li>
+                        <strong>Pionera de las Ondas Radiales</strong>
+                        Se convirtió en la primera mujer de color en interpretar melodías y actuar dentro de los principales formatos de la radio comercial en los Estados Unidos.
+                    </li>
+                    <li>
+                        <strong>Doble Estrella en el Paseo de la Fama</strong>
+                        Su huella imborrable está inmortalizada por partida doble en el legendario Paseo de la Fama de Hollywood, contando con una estrella dedicada a la radio y otra a sus contribuciones en el séptimo arte.
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- PESTAÑA 3: VIDA, OBSTÁCULOS Y LEGADO -->
+        <div id="tab-vida" class="tab-content">
+            <div class="info-card">
+                <h2>Vida Sentimental</h2>
+                <p>La vida afectiva de Hattie estuvo colmada de intensos romances seguidos por infortunios dolorosos. Contrajo nupcias en cuatro ocasiones.</p>
+                <p>Su primer esposo, Howard Hickman, falleció de forma prematura a escasos meses de casados. Sus matrimonios consecuentes con George Morrison, James Lloyd Crawford y Larry Williams reflejaron los profundos retos de balancear la felicidad personal con las severas demandas del estrellato en la época dorada de los estudios cinematográficos.</p>
+            </div>
+
+            <div class="info-card">
+                <h2>Obstáculos y Segregación</h2>
+                <p>A pesar de ser la estrella homenajeada de la noche, las crueles normativas de segregación vigentes impidieron que Hattie se sentara en la mesa principal de los Oscars con sus compañeros de reparto, siendo confinada a una ubicación aislada al fondo del recinto.</p>
+                <p>Asimismo, los organizadores prohibieron tajantemente su acceso al magno estreno mundial de la película en Atlanta.</p>
+                <blockquote>"Prefiero interpretar a una sirvienta en las pantallas por setecientos dólares, que ser una sirvienta real en el mundo por siete dólares."</blockquote>
+            </div>
+
+            <div class="info-card">
+                <h2>Muerte y Legado</h2>
+                <p>El 26 de octubre de 1952, Hattie falleció a la edad de 59 años debido a complicaciones severas derivadas del cáncer de mama.</p>
+                <p>Incluso tras su deceso, los prejuicios raciales de la época le negaron su última voluntad de descansar en el cementerio de Hollywood Memorial Park. Sin embargo, su enorme coraje marcó el sendero definitivo hacia la equidad e inclusión para todas las generaciones posteriores de artistas.</p>
+            </div>
+        </div>
+
+        <!-- PESTAÑA 4: JUEGO INTERACTIVO -->
+        <div id="tab-juego" class="tab-content">
+            <div class="trivia-container" id="trivia-box">
+                <h2>Trivia de Oro</h2>
+                <div class="trivia-progress" id="progress-text">Pregunta 1 de 4</div>
+                <div class="trivia-question" id="question-text">Cargando pregunta...</div>
+                <div class="trivia-options" id="options-container">
+                    <!-- Las opciones dinámicas se insertan aquí vía JS -->
+                </div>
+            </div>
+
+            <div class="trivia-container results-container" id="results-box">
+                <h2>Juego Terminado</h2>
+                <p>Tu puntaje final es de:</p>
+                <div class="results-score" id="final-score">0 / 4</div>
+                <p id="results-message">Mensaje final de evaluación.</p>
+                <br>
+                <button class="gold-button" onclick="resetGame()">Jugar de Nuevo</button>
+            </div>
+        </div>
+
+        <footer>
+            <p>Homenaje Histórico a Hattie McDaniel</p>
+        </footer>
+
+    </div>
+
+    <!-- Lógica funcional para pestañas y juego de trivia -->
+    <script>
+        // Sistema interactivo de Pestañas
+        function openTab(evt, tabName) {
+            var i, tabContent, tabButtons;
+            
+            tabContent = document.getElementsByClassName("tab-content");
+            for (i = 0; i < tabContent.length; i++) {
+                tabContent[i].classList.remove("active");
+            }
+            
+            tabButtons = document.getElementsByClassName("tab-button");
+            for (i = 0; i < tabButtons.length; i++) {
+                tabButtons[i].classList.remove("active");
+            }
+            
+            document.getElementById(tabName).classList.add("active");
+            evt.currentTarget.classList.add("active");
+
+            // Desplazamiento fluido hacia arriba ideal para pantallas pequeñas
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Configuración y datos del juego de trivia
+        const questions = [
+            {
+                question: "¿Por cuál película icónica ganó Hattie McDaniel el Premio Oscar?",
+                options: [
+                    "Lo que el viento se llevó",
+                    "Saratoga",
+                    "La pequeña rebelde",
+                    "Alicia en el país de las maravillas"
+                ],
+                correct: 0
+            },
+            {
+                question: "¿En qué año se celebró la ceremonia donde hizo historia ganando el galardón?",
+                options: [
+                    "1935",
+                    "1952",
+                    "1940",
+                    "1945"
+                ],
+                correct: 2
+            },
+            {
+                question: "¿En qué otro medio masivo de comunicación destacó como mujer pionera?",
+                options: [
+                    "Televisión por cable",
+                    "Radio comercial",
+                    "Prensa escrita",
+                    "Teatro musical de Broadway"
+                ],
+                correct: 1
+            },
+            {
+                question: "¿Qué medida segregacionista enfrentó la noche de su triunfo?",
+                options: [
+                    "No le permitieron hablar al micrófono",
+                    "Le cobraron la entrada al recinto",
+                    "La sentaron en una mesa apartada al fondo",
+                    "Le retiraron el premio al terminar la noche"
+                ],
+                correct: 2
+            }
+        ];
+
+        let currentQuestionIndex = 0;
+        let score = 0;
+        let acceptAnswers = true;
+
+        const progressText = document.getElementById("progress-text");
+        const questionText = document.getElementById("question-text");
+        const optionsContainer = document.getElementById("options-container");
+        const triviaBox = document.getElementById("trivia-box");
+        const resultsBox = document.getElementById("results-box");
+        const finalScore = document.getElementById("final-score");
+        const resultsMessage = document.getElementById("results-message");
+
+        function loadQuestion() {
+            acceptAnswers = true;
+            const currentQuestion = questions[currentQuestionIndex];
+            progressText.innerText = `Pregunta ${currentQuestionIndex + 1} de ${questions.length}`;
+            questionText.innerText = currentQuestion.question;
+            optionsContainer.innerHTML = "";
+
+            currentQuestion.options.forEach((option, index) => {
+                const button = document.createElement("button");
+                button.classList.add("option-btn");
+                button.innerText = option;
+                button.addEventListener("click", () => selectOption(index, button));
+                optionsContainer.appendChild(button);
+            });
+        }
+
+        function selectOption(selectedIndex, selectedButton) {
+            if (!acceptAnswers) return;
+            acceptAnswers = false;
+
+            const currentQuestion = questions[currentQuestionIndex];
+            const optionButtons = optionsContainer.getElementsByClassName("option-btn");
+
+            if (selectedIndex === currentQuestion.correct) {
+                selectedButton.classList.add("correct");
+                score++;
+            } else {
+                selectedButton.classList.add("incorrect");
+                optionButtons[currentQuestion.correct].classList.add("correct");
+            }
+
+            // Transición suave hacia la siguiente pregunta
+            setTimeout(() => {
+                currentQuestionIndex++;
+                if (currentQuestionIndex < questions.length) {
+                    loadQuestion();
+                } else {
+                    showResults();
+                }
+            }, 1500);
+        }
+
+        function showResults() {
+            triviaBox.style.display = "none";
+            resultsBox.style.display = "block";
+            finalScore.innerText = `${score} / ${questions.length}`;
+
+            if (score === questions.length) {
+                resultsMessage.innerText = "¡Espectacular! Tienes un conocimiento perfecto sobre el legado dorado de Hattie McDaniel.";
+            } else if (score >= 2) {
+                resultsMessage.innerText = "¡Buen intento! Conoces varios datos importantes. Explora las otras pestañas para obtener el puntaje ideal.";
+            } else {
+                resultsMessage.innerText = "Te invitamos a repasar su biografía en las pestañas informativas para descubrir su inspiradora historia.";
+            }
+        }
+
+        function resetGame() {
+            currentQuestionIndex = 0;
+            score = 0;
+            resultsBox.style.display = "none";
+            triviaBox.style.display = "block";
+            loadQuestion();
+        }
+
+        // Arrancar la trivia por defecto
+        loadQuestion();
+    </script>
+</body>
+</html>
